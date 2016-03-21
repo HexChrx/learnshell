@@ -1,0 +1,48 @@
+# redis 操作
+# String 操作 
+set 设置key对应的值为String类型的value
+set name lijie
+
+get 获取 get name
+
+setnx 设置 如果key已经存在则返回(integer)0 成功则返回(integer)1  nx:not exit
+setnx name lamp
+
+setex 设置key对应的值为String类型的value，并指定此key对应的有效期,不设有效期则代表永远有效
+setex haircolor 10 red  #设置haircolor值为red 有效时间为10s
+
+#设置子字符串
+setrange email 6 gmail.com # 6代表下标 从0开始 只替换相同数量的字符，不删除后面的字符
+
+#mset  一次设置多个key值，成功则返回ok所有值设置成功 失败返回0没有任何值被设置
+mset key1 value1 key2 value2 
+
+#mestnx 一次设置多个key值，成功则返回ok所有值设置成功 失败返回0没有任何值被设置不会覆盖已经存在的key
+msetnx key3 value3 key2 value2
+
+# getset 设置新值 并返回旧值
+getset key1 v1
+
+# getrange 0 4 获取0-4位置的字符
+getrange name 0 4
+
+# mget 批量获取 如果对应的值不存在则返回 nil
+mget key1 key2 key3 key4 key5 key6
+
+# incr 自增 返回设置之后的值 如果值不存在则设为1
+incr age 
+
+#incrby num 加num 如果值不存在则设为num
+incrby age 5
+incrby age -5 减5
+#对应的逆操作 decr decrby
+
+# append 指定key的value追加 返回字符串长度
+append name .net
+
+# strlen 返回value的长度
+strlen name
+
+
+
+

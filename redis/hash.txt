@@ -1,0 +1,49 @@
+#redis hash操作
+
+# redis hash是一个string类型的field和value的映射表
+
+# hset 设置hash field为指定值 如果key不存在则先创建 返回Hash中键的个数
+# hset key field value
+# hget key field
+hset user:001 name lijie
+hget user:001 name
+
+#hsetnx key field value 存在则不设置并返回0
+hsetnx user:001 name ll 
+
+
+# hmset 同时设置hash 的多个field
+hmset key field1 value1 fidld2 value2
+
+# hmget key field1 fidld2
+
+#hincrby num 增加num
+
+#hexits key field 检查key下的field是否存在
+
+# hlen 返回hash所有的键的数量
+hlen user:003
+
+#hdel key field 删除key下的field字段
+hdel key field
+
+# hkeys 返回key中所有field
+127.0.0.1:6379> hkeys user:002
+1) "name"
+2) "age"
+3) "sex"
+
+# hvals 返回所有的value值
+127.0.0.1:6379> hvals user:002
+1) "user2"
+2) "24"
+3) "1"
+
+# hgetall 返回key和val
+127.0.0.1:6379> hgetall user:002
+1) "name"	#field1
+2) "user2"	#value1
+3) "age"	#field2
+4) "24"		#value2
+5) "sex"	#field3
+6) "1"		#value3
