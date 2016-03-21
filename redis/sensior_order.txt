@@ -1,0 +1,41 @@
+#redis的高级应用
+
+#授权登录
+auth passwd #登录后授权
+./redis-cli -a aschen1243 #登陆时授权
+
+#主从复制
+
+#事务
+multi #事务上下文
+
+	#a set of orders
+
+exec #执行事务队列
+
+discard #清空命令队列 
+
+#命令队列中有一个出现出错 不会 回滚
+
+
+# 乐观锁
+# 自动加乐观锁
+
+# 持久化机制
+1、snapshotting (快照) 默认方式
+
+save time n #time秒内有n个数据被修改 则快照保存
+
+
+2、Append-only file (aof)方式
+# 每次修改命令都保存存到文件中  
+# 重启后重新执行所有的操作步骤
+
+#由于操作系统也会缓存文件所以也可能造成数据丢失
+#可以配置通过fsync 函数强制os写入磁盘
+
+#发布与订阅信息 pub/sub
+#subscribe 订阅
+#pusbscribe 发布
+
+
